@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simuladores Interactivos Pro | Desafío Técnico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <span class="material-icons-outlined logo-icon">functions</span>
+            <h1>Plataforma de <span class="highlight">Simuladores Matemáticos</span></h1>
+            <p>Precisión algorítmica aplicada a la ciencia y la probabilidad</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" id="card-calor">
+            <div class="card-header">
+                <span class="material-icons-outlined card-icon">thermostat</span>
+                <h2>Ley de Enfriamiento</h2>
+            </div>
+            
+            <div class="formula-container">
+                <span class="formula-label">Fórmula Física</span>
+                <p class="formula">T = Ts + (T0 - Ts) * e<sup>(-k * t)</sup></p>
+            </div>
+            
+            <form id="form-enfriamiento" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="t0">
+                        <span class="material-icons-outlined input-icon">device_thermostat</span>
+                        Temp. Inicial (T0) <span class="unit">[°C]</span>
+                    </label>
+                    <input type="number" id="t0" value="120" step="any" required placeholder="Ej: 120">
+                </div>
+                <div class="form-group">
+                    <label for="ts">
+                        <span class="material-icons-outlined input-icon">ac_unit</span>
+                        Temp. Entorno (Ts) <span class="unit">[°C]</span>
+                    </label>
+                    <input type="number" id="ts" value="38" step="any" required placeholder="Ej: 38">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="k">
+                            <span class="material-icons-outlined input-icon">trending_down</span>
+                            Constante (k)
+                        </label>
+                        <input type="number" id="k" value="0.45" step="any" min="0" required placeholder="Ej: 0.45">
+                    </div>
+                    <div class="form-group">
+                        <label for="t">
+                            <span class="material-icons-outlined input-icon">schedule</span>
+                            Tiempo (t) <span class="unit">[h]</span>
+                        </label>
+                        <input type="number" id="t" value="3" step="any" min="0" required placeholder="Ej: 3">
+                    </div>
+                </div>
+                <button type="button" id="btn-calcular-calor" class="btn-primary">
+                    <span class="material-icons-outlined btn-icon">calculate</span>
+                    Calcular Temperatura
+                </button>
+            </form>
+
+            <div id="resultado-calor" class="result-box hidden"></div>
+        </section>
+
+        <section class="card" id="card-combinaciones">
+            <div class="card-header">
+                <span class="material-icons-outlined card-icon">filter_9_plus</span>
+                <h2>Calculador de Combinaciones</h2>
+            </div>
+            
+            <div class="formula-container">
+                <span class="formula-label">Fórmula Probabilística</span>
+                <p class="formula">C(n, r) = n! / [ r! * (n - r)! ]</p>
+            </div>
+            
+            <form id="form-combinaciones" onsubmit="event.preventDefault();">
+                <div class="group-section">
+                    <h3>
+                        <span class="material-icons-outlined group-icon">looks_one</span>
+                        Grupo 1 (Principal)
+                    </h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="n1">Elementos (n1)</label>
+                            <input type="number" id="n1" value="59" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="r1">Selección (r1)</label>
+                            <input type="number" id="r1" value="5" min="0" max="100" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group-section">
+                    <h3>
+                        <span class="material-icons-outlined group-icon">looks_two</span>
+                        Grupo 2 (Secundario)
+                    </h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="n2">Elementos (n2)</label>
+                            <input type="number" id="n2" value="35" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="r2">Selección (r2)</label>
+                            <input type="number" id="r2" value="1" min="0" max="100" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="btn-calcular-combinaciones" class="btn-secondary">
+                    <span class="material-icons-outlined btn-icon">equalizer</span>
+                    Calcular Sorteo
+                </button>
+            </form>
+
+            <div id="resultado-combinaciones" class="result-box hidden"></div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 - <span class="highlight-alt">Dpto. de Ingeniería y Matemáticas</span></p>
+        <p class="subtitle">Evaluación Técnico de Programación Web</p>
+    </footer>
+
+    <script src="java.js"></script>
+</body>
+</html>
